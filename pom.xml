@@ -288,6 +288,7 @@
             <ignoreMethodAnnotation>java.lang.annotation.Target</ignoreMethodAnnotation>
             <excludes>
               <exclude>liqp/parser/*.class</exclude>
+              <exclude>liqp/nodes/LiquidWalker.class</exclude>
             </excludes>
           </instrumentation>
         </configuration>
