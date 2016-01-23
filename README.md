@@ -1,4 +1,4 @@
-# Liqp &nbsp; [![Build Status](https://travis-ci.org/bkiers/Liqp.png)](https://travis-ci.org/bkiers/Liqp)
+# java8-liquid &nbsp; [![Build Status](https://travis-ci.org/tunguski/java8-liquid.png)](https://travis-ci.org/tunguski/java8-liquid)
 
 A Java implementation of the [Liquid templating engine](http://wiki.shopify.com/Liquid) backed 
 up by an ANTLR grammar. 
@@ -7,46 +7,27 @@ up by an ANTLR grammar.
 
 ### Gradle
 
-Add the repository:
-
-```groovy
-repositories {
-  maven {
-    url "https://jitpack.io"
-  }
-}
-```
-
-and then add the dependency:
+Dependency:
 
 ```groovy
 dependencies {
-  compile 'com.github.bkiers:Liqp:0.6.4'
+  compile 'pl.matsuo.liquid:java8-liquid:0.1.0'
 }
 ```
 
 ### Maven
 
-Add the following to your POM's `<repositories>` tag:
-
-```xml
-<repository>
-  <id>jitpack.io</id>
-  <url>https://jitpack.io</url>
-</repository>
-```
-
-then add the following dependency:
+Dependency:
 
 ```xml
 <dependency>
-  <groupId>com.github.bkiers</groupId>
-  <artifactId>Liqp</artifactId>
-  <version>0.6.4</version>
+  <groupId>pl.matsuo.liquid</groupId>
+  <artifactId>java8-liquid</artifactId>
+  <version>0.1.0</version>
 </dependency>
 ```
 
-Or clone this repository and run: `mvn install` which will create a JAR of Liqp
+Or clone this repository and run: `mvn install` which will create a JAR of java8-liquid
 in your local Maven repository, as well as in the project's `target/` folder.
 
 
@@ -123,7 +104,7 @@ System.out.println(template.toStringAST());
        '- PLAIN='</ul>'
 */
 ```
-Checkout the [ANTLR grammar](https://github.com/bkiers/Liqp/blob/master/src/grammar/Liquid.g) 
+Checkout the [ANTLR grammar](https://github.com/tunguski/java8-liquid/blob/master/src/grammar/Liquid.g) 
 to see what the AST looks like for each of the parser rules.
 
 ## 2. Render Liquid
@@ -137,7 +118,7 @@ In Ruby, you'd render a template like this:
 @template.render( 'name' => 'tobi' )               # Renders the output => "hi tobi"
 ```
 
-With Liqp, the equivalent looks like this:
+With java8-liquid, the equivalent looks like this:
 
 ```java
 Template template = Template.parse("hi {{name}}");
@@ -155,7 +136,7 @@ The context provided as a parameter to `render(...)` can be:
 * a `Map<String, Object>`
 * or a JSON string
 
-The following examples are equivalent to the previous Liqp example:
+The following examples are equivalent to the previous java8-liquid example:
 
 #### Map example
 
