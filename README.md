@@ -1,4 +1,7 @@
-# java8-liquid &nbsp; [![Build Status](https://travis-ci.org/tunguski/java8-liquid.png)](https://travis-ci.org/tunguski/java8-liquid)
+# java8-liquid
+
+[![Build Status](https://travis-ci.org/tunguski/java8-liquid.png)](https://travis-ci.org/tunguski/java8-liquid)
+[![Coverage Status](https://coveralls.io/repos/github/tunguski/java8-liquid/badge.svg?branch=master)](https://coveralls.io/github/tunguski/java8-liquid?branch=master)
 
 A Java implementation of the [Liquid templating engine](http://wiki.shopify.com/Liquid) backed 
 up by an ANTLR grammar. 
