@@ -9,7 +9,7 @@
   <artifactId>liquid</artifactId>
   <packaging>jar</packaging>
   <version>0.2.0</version>
-  <name>Liqp</name>
+  <name>java8-liquid</name>
   <description>A Java implementation of the Liquid templating engine backed up by an ANTLR grammar.</description>
   <url>https://github.com/tunguski/java8-liquid.git</url>
   <inceptionYear>2012</inceptionYear>

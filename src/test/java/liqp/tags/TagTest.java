@@ -2,14 +2,12 @@ package liqp.tags;
 
 import liqp.Template;
 import liqp.nodes.LNode;
+import liqp.render.RenderingContext;
 import org.antlr.runtime.RecognitionException;
 import org.junit.Test;
 
-import java.util.Map;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 public class TagTest {
 
@@ -18,7 +16,7 @@ public class TagTest {
 
         Tag.registerTag(new Tag("twice") {
             @Override
-            public Object render(Map<String, Object> context, LNode... nodes) {
+            public Object render(RenderingContext context, LNode... nodes) {
                 Double number = super.asNumber(nodes[0].render(context)).doubleValue();
                 return number * 2;
             }
@@ -35,7 +33,7 @@ public class TagTest {
 
         Tag.registerTag(new Tag("twice") {
             @Override
-            public Object render(Map<String, Object> context, LNode... nodes) {
+            public Object render(RenderingContext context, LNode... nodes) {
                 LNode blockNode = nodes[nodes.length - 1];
                 String blockValue = super.asString(blockNode.render(context));
                 return blockValue + " " + blockValue;

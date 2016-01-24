@@ -3,8 +3,7 @@ package liqp.tags;
 import liqp.LValue;
 import liqp.nodes.BlockNode;
 import liqp.nodes.LNode;
-
-import java.util.Map;
+import liqp.render.RenderingContext;
 
 class Case extends Tag {
 
@@ -12,7 +11,7 @@ class Case extends Tag {
      * Block tag, its the standard case...when block
      */
     @Override
-    public Object render(Map<String, Object> context, LNode... nodes) {
+    public Object render(RenderingContext context, LNode... nodes) {
 
         //        ^(CASE condition           var
         //            ^(WHEN term+ block)    1,2,3  b1

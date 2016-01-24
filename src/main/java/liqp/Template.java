@@ -3,9 +3,10 @@ package liqp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import liqp.filters.Filter;
 import liqp.nodes.LNode;
+import liqp.nodes.LiquidWalker;
 import liqp.parser.LiquidLexer;
 import liqp.parser.LiquidParser;
-import liqp.nodes.LiquidWalker;
+import liqp.render.RenderingContext;
 import liqp.tags.Tag;
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.ANTLRStringStream;
@@ -195,6 +196,20 @@ public class Template {
     /**
      * Renders the template.
      *
+     * @param contextMap
+     *         a Map denoting the (possibly nested)
+     *         variables that can be used in this
+     *         Template.
+     *
+     * @return a string denoting the rendered template.
+     */
+    public String render(Map<String, Object> contextMap) {
+        return render(new RenderingContext(contextMap));
+    }
+
+    /**
+     * Renders the template.
+     *
      * @param context
      *         a Map denoting the (possibly nested)
      *         variables that can be used in this
@@ -202,7 +217,7 @@ public class Template {
      *
      * @return a string denoting the rendered template.
      */
-    public String render(Map<String, Object> context) {
+    public String render(RenderingContext context) {
 
         LiquidWalker walker = new LiquidWalker(new CommonTreeNodeStream(root), this.tags, this.filters);
 

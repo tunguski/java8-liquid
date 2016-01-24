@@ -1,8 +1,7 @@
 package liqp.tags;
 
 import liqp.nodes.LNode;
-
-import java.util.Map;
+import liqp.render.RenderingContext;
 
 class Raw extends Tag {
 
@@ -10,7 +9,7 @@ class Raw extends Tag {
      * temporarily disable tag processing to avoid syntax conflicts.
      */
     @Override
-    public Object render(Map<String, Object> context, LNode... nodes) {
+    public Object render(RenderingContext context, LNode... nodes) {
         return nodes[0].render(context);
     }
 }

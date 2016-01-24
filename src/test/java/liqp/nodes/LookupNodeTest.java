@@ -1,14 +1,16 @@
 package liqp.nodes;
 
-import java.util.HashMap;
-import java.util.Map;
 import liqp.Template;
+import liqp.render.RenderingContext;
 import org.antlr.runtime.RecognitionException;
 import org.junit.Test;
 
-import static liqp.TestUtils.getNode;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import java.util.HashMap;
+import java.util.Map;
+
+import static liqp.TestUtils.*;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 public class LookupNodeTest {
 
@@ -51,7 +53,7 @@ public class LookupNodeTest {
     @Test
     public void lengthQueryTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
 
         context.put("numbers", new Integer[]{1, 2, 3, 4});
 
@@ -95,13 +97,13 @@ public class LookupNodeTest {
     @Test
     public void tryFirstTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
 
         context.put("test", new Integer[]{1, 2, 3, 4, 5});
         assertThat(getNode("test.first", "expr").render(context), is((Object)1));
         assertThat(getNode("test.last", "expr").render(context), is((Object)5));
 
-        Map<String, Object> context2 = new HashMap<String, Object>();
+        RenderingContext context2 = new RenderingContext();
         context2.put("test", context);
         assertThat(getNode("test.test.first", "expr").render(context2), is((Object)1));
         assertThat(getNode("test.test.last", "expr").render(context2), is((Object)5));
@@ -124,7 +126,7 @@ public class LookupNodeTest {
     @Test
     public void accessHashesWithHashNotationTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
         Map<String, Object> products = new HashMap<String, Object>();
         Map<String, Object> product = new HashMap<String, Object>();
 
@@ -165,7 +167,7 @@ public class LookupNodeTest {
     @Test
     public void accessVariableWithHashNotationTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
 
         context.put("foo", "baz");
         context.put("bar", "foo");
@@ -188,7 +190,7 @@ public class LookupNodeTest {
     @Test
     public void accessHashesWithHashAccessVariablesTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
 
         context.put("var", "tags");
         context.put("nested", new HashMap<String, Object>(){{
@@ -216,7 +218,7 @@ public class LookupNodeTest {
     @Test
     public void hashNotationOnlyForHashAccessTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
 
         context.put("array", new Integer[]{1, 2, 3, 4, 5});
         context.put("hash", new HashMap<String, Object>(){{
@@ -243,7 +245,7 @@ public class LookupNodeTest {
     @Test
     public void firstCanAppearInMiddleOfCallChainTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
 
         context.put("product", new HashMap<String, Object>(){{
             put("variants", new HashMap[]{

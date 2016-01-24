@@ -1,10 +1,10 @@
 package liqp.nodes;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import liqp.render.RenderingContext;
 import liqp.tags.Tag;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BlockNode implements LNode {
 
@@ -23,7 +23,7 @@ public class BlockNode implements LNode {
     }
 
     @Override
-    public Object render(Map<String, Object> context) {
+    public Object render(RenderingContext context) {
 
         StringBuilder builder = new StringBuilder();
 

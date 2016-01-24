@@ -1,12 +1,13 @@
 package liqp.filters;
 
-import java.util.regex.Pattern;
 import liqp.Template;
 import org.antlr.runtime.RecognitionException;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import java.util.regex.Pattern;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 public class SplitTest {
 

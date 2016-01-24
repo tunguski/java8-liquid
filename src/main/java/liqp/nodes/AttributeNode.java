@@ -1,6 +1,6 @@
 package liqp.nodes;
 
-import java.util.Map;
+import liqp.render.RenderingContext;
 
 class AttributeNode implements LNode {
 
@@ -13,7 +13,7 @@ class AttributeNode implements LNode {
     }
 
     @Override
-    public Object render(Map<String, Object> context) {
+    public Object render(RenderingContext context) {
 
         return new Object[]{
                 key.render(context),

@@ -1,13 +1,11 @@
 package liqp;
 
-import java.util.HashMap;
-import java.util.Map;
+import liqp.render.RenderingContext;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
 import static liqp.TestUtils.*;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 public class ConditionTest {
 
@@ -132,7 +130,7 @@ public class ConditionTest {
     @Test
     public void containsWorksOnArraysTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
         context.put("array", new Long[]{1L, 2L, 3L, 4L, 5L});
 
         assertThat(getNode("array contains 0", "expr").render(context), is((Object)false));
@@ -155,7 +153,7 @@ public class ConditionTest {
     @Test
     public void containsReturnsFalseForNilOperandsTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
 
         assertThat(getNode("not_assigned contains 0", "expr").render(context), is((Object)false));
         assertThat(getNode("0 contains not_assigned", "expr").render(context), is((Object)false));
@@ -172,7 +170,7 @@ public class ConditionTest {
     @Test
     public void leftOrRightMayContainOperatorsTest() throws Exception {
 
-        Map<String, Object> context = new HashMap<String, Object>();
+        RenderingContext context = new RenderingContext();
         context.put("one", "gnomeslab-and-or-liquid");
         context.put("another", "gnomeslab-and-or-liquid");
 

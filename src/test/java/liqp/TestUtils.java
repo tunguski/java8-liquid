@@ -1,6 +1,5 @@
 package liqp;
 
-import java.lang.reflect.Method;
 import liqp.nodes.LNode;
 import liqp.nodes.LiquidWalker;
 import liqp.parser.LiquidLexer;
@@ -9,6 +8,8 @@ import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
+
+import java.lang.reflect.Method;
 
 public final class TestUtils {
 

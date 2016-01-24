@@ -1,6 +1,7 @@
 package liqp.tags;
 
 import liqp.nodes.LNode;
+import liqp.render.RenderingContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -40,7 +41,7 @@ class Tablerow extends Tag {
      * Tables
      */
     @Override
-    public Object render(Map<String, Object> context, LNode... nodes) {
+    public Object render(RenderingContext context, LNode... nodes) {
 
         String valueName = super.asString(nodes[0].render(context));
         Object[] collection = super.asArray(nodes[1].render(context));
@@ -102,7 +103,7 @@ class Tablerow extends Tag {
         return builder.toString();
     }
 
-    private Map<String, Integer> getAttributes(Object[] collection, int fromIndex, Map<String, Object> context, LNode... tokens) {
+    private Map<String, Integer> getAttributes(Object[] collection, int fromIndex, RenderingContext context, LNode... tokens) {
 
         Map<String, Integer> attributes = new HashMap<String, Integer>();
 

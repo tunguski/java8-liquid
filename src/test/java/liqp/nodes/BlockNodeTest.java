@@ -1,16 +1,15 @@
 package liqp.nodes;
 
-import java.util.Map;
 import liqp.Template;
 import liqp.parser.LiquidLexer;
+import liqp.render.RenderingContext;
 import liqp.tags.Tag;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
-import org.junit.Assert;
 import org.junit.Test;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 public class BlockNodeTest {
 
@@ -155,7 +154,7 @@ public class BlockNodeTest {
 
         Tag.registerTag(new Tag("testtag"){
             @Override
-            public Object render(Map<String, Object> context, LNode... nodes) {
+            public Object render(RenderingContext context, LNode... nodes) {
                 return null;
             }
         });

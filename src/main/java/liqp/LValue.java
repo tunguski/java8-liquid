@@ -1,8 +1,9 @@
 package liqp;
 
+import liqp.nodes.AtomNode;
+
 import java.util.Collection;
 import java.util.List;
-import liqp.nodes.AtomNode;
 
 /**
  * An abstract class the Filter and Tag classes extend.
